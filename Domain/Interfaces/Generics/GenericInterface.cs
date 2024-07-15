@@ -5,7 +5,7 @@
         Task Add(T entity);
         Task Update(T entity);
         Task Delete(T entity);
-        Task<T> GetEntityById(int id);
+        Task<T> GetEntityById(long id);
         Task<IEnumerable<T>> Get();
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Entities.Entities;
 
-internal class Category : Base
+public class Category : Base
 {
     [ForeignKey("FinanceSystem")]
     [Column(Order = 1)]

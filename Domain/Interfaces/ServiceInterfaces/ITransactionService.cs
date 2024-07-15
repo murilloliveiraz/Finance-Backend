@@ -1,6 +1,6 @@
 ﻿namespace Domain.Interfaces.IService
 {
-    public interface IService
+    public interface ITransactionService
     {
     }
 }

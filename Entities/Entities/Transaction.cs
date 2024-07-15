@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Entities.Entities;
 
 [Table("Transacoes")]
-internal class Transaction
+public class Transaction
 {
     public decimal Value { get; set; }
     public int Month { get; set; }

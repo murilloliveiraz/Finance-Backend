@@ -1,6 +1,6 @@
-﻿namespace Domain.Interfaces.IService
+﻿namespace Domain.Interfaces.ServiceInterfaces
 {
-    public interface IService
+    public interface ICategoryService
     {
     }
 }

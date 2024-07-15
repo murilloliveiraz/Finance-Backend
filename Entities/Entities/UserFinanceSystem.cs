@@ -2,7 +2,7 @@
 
 namespace Entities.Entities;
 
-internal class UserFinanceSystem
+public class UserFinanceSystem
 {
     public int Id { get; set; }
     public string Email { get; set; }

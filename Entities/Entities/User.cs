@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Entities;
 
-internal class User : IdentityUser
+public class User : IdentityUser
 {
     [Column("USER_CPF")]
     public string CPF { get; set; }

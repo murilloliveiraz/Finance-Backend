@@ -2,7 +2,7 @@
 
 namespace Entities.Entities;
 
-internal class Notification
+public class Notification
 {
     [NotMapped]
     public string PropName { get; set; }

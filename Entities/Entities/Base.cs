@@ -2,7 +2,7 @@
 
 namespace Entities.Entities;
 
-internal class Base : Notification
+public class Base : Notification
 {
     [Display(Name = "Código")]
     public int Id { get; set; }
