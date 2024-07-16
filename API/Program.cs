@@ -1,3 +1,4 @@
+using API.Token;
 using Domain.Interfaces.Generics;
 using Domain.Interfaces.ICategory;
 using Domain.Interfaces.IFinanceSystem;
@@ -10,7 +11,9 @@ using Entities.Entities;
 using Infraestructure.Configurations;
 using Infraestructure.Repository;
 using Infraestructure.Repository.Generics;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +41,37 @@ builder.Services.AddSingleton<ITransactionService, TransactionService>();
 builder.Services.AddSingleton<IFinanceSystemService, FinanceSystemService>();
 builder.Services.AddSingleton<IUserFinanceSystemService, UserFinanceSystemService>();
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddJwtBearer(option =>
+             {
+                 option.TokenValidationParameters = new TokenValidationParameters
+                 {
+                     ValidateIssuer = false,
+                     ValidateAudience = false,
+                     ValidateLifetime = true,
+                     ValidateIssuerSigningKey = true,
+
+                     ValidIssuer = "Teste.Securiry.Bearer",
+                     ValidAudience = "Teste.Securiry.Bearer",
+                     IssuerSigningKey = JwtSecurityKey.Create("Secret_Key-12345678-kmksmdewjrewhrlao")
+                 };
+
+                 option.Events = new JwtBearerEvents
+                 {
+                     OnAuthenticationFailed = context =>
+                     {
+                         Console.WriteLine("OnAuthenticationFailed: " + context.Exception.Message);
+                         return Task.CompletedTask;
+                     },
+                     OnTokenValidated = context =>
+                     {
+                         Console.WriteLine("OnTokenValidated: " + context.SecurityToken);
+                         return Task.CompletedTask;
+                     }
+                 };
+             });
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -49,6 +83,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
