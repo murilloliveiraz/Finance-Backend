@@ -1,8 +1,11 @@
 using Domain.Interfaces.Generics;
 using Domain.Interfaces.ICategory;
 using Domain.Interfaces.IFinanceSystem;
+using Domain.Interfaces.IService;
 using Domain.Interfaces.ITransaction;
 using Domain.Interfaces.IUserFinanceSystem;
+using Domain.Interfaces.ServiceInterfaces;
+using Domain.Services;
 using Entities.Entities;
 using Infraestructure.Configurations;
 using Infraestructure.Repository;
@@ -29,6 +32,11 @@ builder.Services.AddSingleton<ICategory, RepositoryCategory>();
 builder.Services.AddSingleton<ITransaction, RepositoryTransaction>();
 builder.Services.AddSingleton<IFinanceSystem, RepositoryFinanceSystem>();
 builder.Services.AddSingleton<IUserFinanceSystem, RepositoryUserFinanceSystem>();
+
+builder.Services.AddSingleton<ICategoryService, CategoryService>();
+builder.Services.AddSingleton<ITransactionService, TransactionService>();
+builder.Services.AddSingleton<IFinanceSystemService, FinanceSystemService>();
+builder.Services.AddSingleton<IUserFinanceSystemService, UserFinanceSystemService>();
 
 var app = builder.Build();
 

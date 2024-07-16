@@ -5,12 +5,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Entities.Entities;
 
 [Table("Transacoes")]
-public class Transaction
+public class Transaction : Base
 {
     public decimal Value { get; set; }
     public int Month { get; set; }
     public int Year { get; set; }
     public EnumTransactionType TransactionType { get; set; }
+    public DateTime RegistrationDate { get; set; }
     public DateTime DateOfTheChange { get; set; }
     public DateTime PaymentDate { get; set; }
     public DateTime DueDate { get; set; }

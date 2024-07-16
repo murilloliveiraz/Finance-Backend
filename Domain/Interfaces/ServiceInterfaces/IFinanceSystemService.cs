@@ -1,6 +1,10 @@
-﻿namespace Domain.Interfaces.ServiceInterfaces
+﻿using Entities.Entities;
+
+namespace Domain.Interfaces.ServiceInterfaces
 {
-    internal interface IFinanceSystemService
+    public interface IFinanceSystemService
     {
+        Task AdicionarSistemaFinanceiro(FinanceSystem sistema);
+        Task AtualizarSistemaFinanceiro(FinanceSystem sistema);
     }
 }
