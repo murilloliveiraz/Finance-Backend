@@ -6,5 +6,6 @@ namespace Domain.Interfaces.IService
     {
         Task AdicionarTransacao(Transaction transacao);
         Task AtualizarTransacao(Transaction transacao);
+        Task<object> CarregaGraficos(string emailUsuario);
     }
 }

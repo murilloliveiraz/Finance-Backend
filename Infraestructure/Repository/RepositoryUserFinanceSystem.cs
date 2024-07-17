@@ -13,7 +13,7 @@ namespace Infraestructure.Repository
         {
             _optionsBuilder = new DbContextOptions<ApplicationContext>();
         } 
-        public async Task<IEnumerable<UserFinanceSystem>> GetSystemUsers(long idSystem)
+        public async Task<IEnumerable<UserFinanceSystem>> GetSystemUsers(int idSystem)
         {
             using (var database = new ApplicationContext(_optionsBuilder))
             {

@@ -24,14 +24,14 @@ namespace Infraestructure.Migrations
 
             modelBuilder.Entity("Entities.Entities.Category", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<int>("IdSystem")
-                        .HasColumnType("int")
+                    b.Property<long>("IdSystem")
+                        .HasColumnType("bigint")
                         .HasColumnOrder(1);
 
                     b.Property<string>("Name")
@@ -47,11 +47,11 @@ namespace Infraestructure.Migrations
 
             modelBuilder.Entity("Entities.Entities.FinanceSystem", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<int>("Closingdate")
                         .HasColumnType("int");
@@ -82,11 +82,11 @@ namespace Infraestructure.Migrations
 
             modelBuilder.Entity("Entities.Entities.Transaction", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<bool>("AlreadyPaid")
                         .HasColumnType("bit");
@@ -97,8 +97,8 @@ namespace Infraestructure.Migrations
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("IdCategory")
-                        .HasColumnType("int")
+                    b.Property<long>("IdCategory")
+                        .HasColumnType("bigint")
                         .HasColumnOrder(1);
 
                     b.Property<int>("Month")
@@ -205,11 +205,11 @@ namespace Infraestructure.Migrations
 
             modelBuilder.Entity("Entities.Entities.UserFinanceSystem", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<bool>("Administrator")
                         .HasColumnType("bit");
@@ -221,8 +221,8 @@ namespace Infraestructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("IdSystem")
-                        .HasColumnType("int")
+                    b.Property<long>("IdSystem")
+                        .HasColumnType("bigint")
                         .HasColumnOrder(1);
 
                     b.HasKey("Id");
