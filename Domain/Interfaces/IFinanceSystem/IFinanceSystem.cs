@@ -6,5 +6,6 @@ namespace Domain.Interfaces.IFinanceSystem
     public interface IFinanceSystem : GenericInterface<FinanceSystem>
     {
         Task<IEnumerable<FinanceSystem>> GetUserSystems(string userEmail);
+        Task<bool> MakeACopyOfSystemTransactions();
     }
 }
